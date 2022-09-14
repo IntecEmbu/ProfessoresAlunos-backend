@@ -1,6 +1,6 @@
-const multer = require('multer');
+import multer from 'multer'
 
-module.exports = (multer({
+const uploadImage = multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
             cb(null, './public/upload/observatorio')
@@ -18,4 +18,6 @@ module.exports = (multer({
 
         return cb(null, false);
     }
-}));
+})
+
+export default uploadImage;
