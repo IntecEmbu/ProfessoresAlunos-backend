@@ -1,5 +1,8 @@
 # API_alunos_professores
 
+--iniciar projeto com comando node src/app.js
+
+
 # Sobre o multer
 
 https://www.npmjs.com/package/multer
