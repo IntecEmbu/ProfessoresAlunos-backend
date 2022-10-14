@@ -1,6 +1,6 @@
 import sequelize from 'sequelize';
 
-import db from '../connection.js/connection.js';
+import db from '../connections/connection.js';
 
 //
 const Image = db.define('imagens', {

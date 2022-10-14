@@ -1,7 +1,7 @@
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import Image from '../models.js/observatorio.js';
+import Image from '../models/observatorio.js';
 import dirmulter from '../middlewares/multer.js';
 import cors from 'cors';
 
