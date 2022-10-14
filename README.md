@@ -11,6 +11,7 @@ https://www.npmjs.com/package/multer
 --Mysql2
 --cors
 --sequelize
+--path
 
 # teste insominia 
 http://localhost:8080/upload-image
