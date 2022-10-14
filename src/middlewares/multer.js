@@ -1,6 +1,6 @@
 import multer from 'multer';
 
-
+//caminho da pasta na qual o arquivo foi salvo.
 const dirmulter = (multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {

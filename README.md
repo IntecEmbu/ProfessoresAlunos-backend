@@ -4,6 +4,11 @@
 
 https://www.npmjs.com/package/multer
 
+# Sobre o sequelize
+
+https://sequelize.org/
+
+
 # dependências
 
 --Multer
@@ -13,7 +18,7 @@ https://www.npmjs.com/package/multer
 --sequelize
 
 # teste insominia 
-http://localhost:8080/upload-image
+http://localhost:8080/PostObs
 
 content-type : multipart/form-data
 

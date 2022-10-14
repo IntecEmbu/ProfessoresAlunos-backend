@@ -2,6 +2,7 @@ import sequelize from 'sequelize';
 
 import db from '../connection.js/connection.js';
 
+//
 const Image = db.define('imagens', {
     id: {
         type: sequelize.INTEGER,

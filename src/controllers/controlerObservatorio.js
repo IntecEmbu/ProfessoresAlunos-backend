@@ -2,7 +2,7 @@ import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Image from '../models.js/observatorio.js';
-import dirmulter from '../config/multer.js';
+import dirmulter from '../middlewares/multer.js';
 import cors from 'cors';
 
 const route = express.Router();
