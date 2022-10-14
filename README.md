@@ -8,7 +8,6 @@ https://www.npmjs.com/package/multer
 
 https://sequelize.org/
 
-
 # dependências
 
 --Multer
