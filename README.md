@@ -16,6 +16,7 @@ https://sequelize.org/
 --Mysql2
 --cors
 --sequelize
+--path
 
 # teste insominia 
 http://localhost:8080/PostObs
