@@ -22,4 +22,13 @@ http://localhost:8080/PostObs
 
 content-type : multipart/form-data
 
- 
+# Bancos relacionais SQL
+
+```
+BdObservatorio | banco para testes
+
+Intec_TS_DDL1_3 | banco oficial 
+
+Intec_TS_DML1_3 | inserts para teste
+
+ ```
