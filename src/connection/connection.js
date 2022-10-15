@@ -1,7 +1,7 @@
 import sequelize from 'sequelize';
 
 //banco usuario senha
-const dbsequelize = new sequelize('observatorio', 'root', '123456', {
+const dbsequelize = new sequelize('Intec_TS', 'root', '123456', {
     host: 'localhost',
     dialect: 'mysql'
 });

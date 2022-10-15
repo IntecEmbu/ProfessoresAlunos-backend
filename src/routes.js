@@ -6,6 +6,7 @@ import course from "./controllers/courseController.js";
 import { verifyJWT } from './middlewares/jwt.js';
 import PostObs from "./controllers/controlerObservatorio.js";
 import ListObs from "./controllers/controlerObservatorio.js";
+import permUser from './controllers/permUserController.js';
 
 const route = express.Router();
 
@@ -14,7 +15,7 @@ route.use('/user', user);
 route.use('/course', course)
 route.use('/PostObs', PostObs);
 route.use('/ListObs', ListObs);
-
+route.use('/permUser', permUser);
 
 
 export default route;
