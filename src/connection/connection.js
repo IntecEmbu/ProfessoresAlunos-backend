@@ -1,16 +1,16 @@
-import sequelize from 'sequelize';
+//importando a funcionalidade do mysql2 para usar promisses
+import mysql from 'mysql2/promise';
 
-//banco usuario senha
-const dbsequelize = new sequelize('Intec_TS', 'root', '123456', {
+//realiza a conexão com o banco
+async function connect() {
+  const connection = await mysql.createConnection({
     host: 'localhost',
-    dialect: 'mysql'
-});
+    user:  'root',
+    password: '123456',
+    database: 'Intec_TS'
+  });
 
-dbsequelize.authenticate()
-.then(function(){
-    console.log("Conexão com o banco de dados realizada com sucesso!");
-}).catch(function(){
-    console.log("Erro: Conexão com o banco de dados não realizada com sucesso!");
-});
+  return connection;
+}
 
-export default  dbsequelize;
+export default {connect};

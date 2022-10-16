@@ -1,8 +1,15 @@
 #drop database Intec_TS;
-create database Intec_TS;
+create database Intec_TS character set utf8mb4 collate utf8mb4_unicode_ci;
 use Intec_TS;
 
 #description "tbl_course_schedule": identificação dos nomes dos períodos de oferecimento de cursos presenciais.
+create table imagens(
+   id integer auto_increment primary key,
+   image varchar(60) not null,
+   createdAt datetime,
+   updatedAt datetime
+);
+
 create table tbl_course_schedule(
 	id_scd int primary key auto_increment ,		
 	scd_name enum('Manhã','Tarde','Noite'),	

@@ -1,10 +1,10 @@
 import sequelize from 'sequelize';
 
-import db from '../connection/connection.js';
+import db from '../ORM/connection.js';
 
 //
 const Image = db.define('imagens', {
-    id: {
+  id: {
         type: sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
@@ -19,3 +19,5 @@ const Image = db.define('imagens', {
 //Image.sync();
 
 export default  Image;
+
+
