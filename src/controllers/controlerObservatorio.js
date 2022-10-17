@@ -1,7 +1,7 @@
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import Image from '../models.js/observatorio.js';
+import Image from '../models/observatorio.js';
 import dirmulter from '../middlewares/multer.js';
 import cors from 'cors';
 
@@ -11,7 +11,7 @@ const route = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-route.use('/files', express.static(path.resolve(__dirname, "../","../", "public", "upload",)));
+route.use('/files', express.static(path.resolve(__dirname, "public", "upload",)));
 
 route.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

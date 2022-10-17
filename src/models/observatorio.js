@@ -15,6 +15,7 @@ const Image = db.define('imagens', {
     }
 });
 
+
 //Criar a tabela
 //Image.sync();
 

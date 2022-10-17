@@ -2,6 +2,8 @@
 create database Intec_TS character set utf8mb4 collate utf8mb4_unicode_ci;
 use Intec_TS;
 
+select * from tbl_user;
+
 #description "tbl_course_schedule": identificação dos nomes dos períodos de oferecimento de cursos presenciais.
 create table imagens(
    id integer auto_increment primary key,
