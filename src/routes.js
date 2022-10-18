@@ -3,7 +3,7 @@ import express from 'express';
 
 import user from "./controllers/userController.js";
 import course from "./controllers/courseController.js";
-import { verifyJWT } from './middlewares/jwt.js';
+//import { verifyJWT } from './middlewares/jwt.js';
 import login from "./controllers/loginController.js";
 import PostObs from "./controllers/controlerObservatorio.js";
 import ListObs from "./controllers/controlerObservatorio.js";
