@@ -11,7 +11,7 @@ const route = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-route.use('/files', express.static(path.resolve(__dirname, "public", "upload",)));
+route.use('/files', express.static(path.resolve(__dirname,"../", "../","public", "upload")));
 
 route.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -64,5 +64,4 @@ route.post("/", dirmulter.single('image'), async (req, res) => {
     }
 
 });
-
 export default route;
