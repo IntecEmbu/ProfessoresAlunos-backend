@@ -11,7 +11,7 @@ const route = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-route.use('/files', express.static(path.resolve(__dirname,"../", "../","public", "upload")));
+route.use('/files', express.static('public' + 'upload'));
 
 route.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,7 +28,7 @@ route.get("/", async (req, res) => {
             return res.json({
                 erro: false,
                 images,
-                url: "http://localhost:8080/files/observatorio/"
+                url: "http://localhost:8080/files/observatorio"
             });
         }).catch(() => {
             return res.status(400).json({
