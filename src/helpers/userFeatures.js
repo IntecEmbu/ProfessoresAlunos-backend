@@ -1,6 +1,9 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 
-function generateToken(sign, userName) {
- return jwt.sign({infoUser: {sign, userName: userName}}, secret, {expiresIn: 60 * 60 * 5});
+function generateToken(id_login, nome) {
+  var secret = "1234";
+  return jwt.sign({ infoUser: { id_login, userName: nome } }, secret, {
+    expiresIn: 60 * 60 * 5,
+  });
 }
-export { generateToken};
+export { generateToken };

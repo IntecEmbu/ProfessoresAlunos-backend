@@ -1,15 +1,16 @@
-import database from '../connection/connection.js'
+import database from "../connection/connection.js";
 
-async function login(userName, sign){
+async function login(nome, senha) {
   const conn = await database.connect();
-  const sql = 'select * from tbl_user WHERE user_name = ? AND sign = ?;';
-  const dataLogin = [userName,sign];
+  const sql =
+    "select user_name, sign from tbl_user WHERE user_name = ? AND sign = ?;";
+  const dataLogin = [nome, senha];
 
-  const [rows] = await conn.query(sql,dataLogin)
+  const [rows] = await conn.query(sql, dataLogin);
 
-  conn.end()
+  conn.end();
 
-  return rows
+  return rows;
 }
 
-export default {login}
+export default { login };
