@@ -7,6 +7,7 @@ import login from "./controllers/loginController.js";
 import PostObs from "./controllers/controlerObservatorio.js";
 import ListObs from "./controllers/controlerObservatorio.js";
 import permUser from "./controllers/permUserController.js";
+import setPermUser from './controllers/setPermUserController.js';
 
 const route = express.Router();
 
@@ -17,5 +18,7 @@ route.use("/login", login);
 route.use('/PostObs', PostObs);
 route.use('/ListObs', ListObs);
 route.use('/permUser', permUser);
+router.use('/setPermUser', setPermUser);
+
 
 export default route;
