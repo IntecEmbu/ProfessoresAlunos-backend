@@ -7,8 +7,8 @@ import login from "./controllers/loginController.js";
 import PostObs from "./controllers/controlerObservatorio.js";
 import ListObs from "./controllers/controlerObservatorio.js";
 import permUser from "./controllers/permUserController.js";
-import setPermUser from './controllers/setPermUserController.js';
-
+//import setPermUser from './controllers/setPermUserController.js';
+//import controlerGet from "./controllers/controlerGet.cjs/index.js";
 const route = express.Router();
 
 //redirecioan as requisições para a controller correspondente
@@ -18,7 +18,8 @@ route.use("/login", login);
 route.use('/PostObs', PostObs);
 route.use('/ListObs', ListObs);
 route.use('/permUser', permUser);
-router.use('/setPermUser', setPermUser);
+//route.use('/ListObs', controlerGet);
+
 
 
 export default route;

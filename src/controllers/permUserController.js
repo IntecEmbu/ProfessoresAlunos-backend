@@ -2,7 +2,7 @@
 
 import express from 'express';
 import {body, validationResult} from 'express-validator';
-import db from'../services/permService.js';
+import db from'../services/permUserService.js';
 //import {generateToken} from'../helpers/userfeatures.js';
 
 const router = express.Router();

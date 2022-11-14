@@ -1,4 +1,4 @@
-import database from '../repository/connection.js';
+import database from '../connection/connection.js';
 
 async function findAuth(regClass,regNumber){	//Retorna as autorizações de um usuário cadastrado utilizando parâmetros Classe e número de registro.
   const conn = await database.connect();

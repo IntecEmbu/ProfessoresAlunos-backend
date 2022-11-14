@@ -11,7 +11,10 @@ const route = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-route.use('/files', express.static('public' + 'upload'));
+//metodo antigo não funciona em type:module
+//route.use('/files', express.static(path.resolve(__dirname,"public", "upload")));
+
+route.use('/files', express.static(path.resolve(__dirname,"public", "upload")));
 
 route.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
