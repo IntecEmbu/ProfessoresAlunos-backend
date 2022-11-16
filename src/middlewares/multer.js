@@ -4,7 +4,7 @@ import multer from 'multer';
 const dirmulter = (multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-            cb(null, '././public/upload/observatorio')
+            cb(null, './console2/upload_back_end_nodejs/public/upload/users')
         },
         filename: (req, file, cb) => {
             cb(null, Date.now().toString() + "_" + file.originalname)

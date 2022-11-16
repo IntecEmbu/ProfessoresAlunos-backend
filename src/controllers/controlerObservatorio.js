@@ -1,6 +1,7 @@
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { dirname } from "path";
 import Image from '../models/observatorio.js';
 import dirmulter from '../middlewares/multer.js';
 import cors from 'cors';
@@ -9,7 +10,7 @@ const route = express.Router();
 
 //não pode usar  dirname dentro de um ES module, então precisamos replicar sua funionalidade dessa maneira:
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
 //metodo antigo não funciona em type:module
 //route.use('/files', express.static(path.resolve(__dirname,"public", "upload")));

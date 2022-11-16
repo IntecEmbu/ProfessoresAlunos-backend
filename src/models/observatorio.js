@@ -17,7 +17,7 @@ const Image = db.define('imagens', {
 
 
 //Criar a tabela
-//Image.sync();
+Image.sync();
 
 export default  Image;
 

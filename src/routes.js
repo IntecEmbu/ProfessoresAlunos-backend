@@ -8,7 +8,7 @@ import PostObs from "./controllers/controlerObservatorio.js";
 import ListObs from "./controllers/controlerObservatorio.js";
 import permUser from "./controllers/permUserController.js";
 //import setPermUser from './controllers/setPermUserController.js';
-//import controlerGet from "./controllers/controlerGet.cjs/index.js";
+//import controlerGet from "./controllers/controlerGet.cjs;
 const route = express.Router();
 
 //redirecioan as requisições para a controller correspondente
