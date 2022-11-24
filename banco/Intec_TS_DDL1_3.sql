@@ -2,7 +2,7 @@
 create database Intec_TS character set utf8mb4 collate utf8mb4_unicode_ci;
 use Intec_TS;
 
-select * from tbl_user;
+select * from Images;
 select * from Intec_TS.Images;
 #drop table images;
 
