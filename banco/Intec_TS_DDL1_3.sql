@@ -2,8 +2,8 @@
 create database Intec_TS character set utf8mb4 collate utf8mb4_unicode_ci;
 use Intec_TS;
 
-select * from Images;
-select * from Intec_TS.Images;
+#select * from tbl_user;
+#select * from Intec_TS.Images;
 #drop table images;
 
 #description "tbl_course_schedule": identificação dos nomes dos períodos de oferecimento de cursos presenciais.
@@ -240,6 +240,7 @@ create table tbl_observatory(
 	obs_cod	int unique,
 	obs_name varchar(70),
 	obs_subject	varchar(200),
+    obs_desc	varchar(200),
     organizing int,
     access_time int,
 	constraint fk_coord foreign key (organizing) references tbl_perm_user_link(id_pulink),
@@ -293,3 +294,7 @@ create table tbl_class_student_concept(
 	constraint fku_advisor foreign key (advisor) references tbl_perm_user_link(id_pulink),
     constraint fku_student foreign key (student) references tbl_user(id_user)
     );
+    select * from tbl_observatory;
+    
+insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
+	('teste', 'teste', 'teste');

@@ -13,4 +13,12 @@ async function login(nome, senha) {
   return rows;
 }
 
-export default { login };
+async function namePersol() {
+  const conn = await database.connect();
+  const sql = 'SELECT user_name, registration_number FROM tbl_user WHERE id_user = 6';
+  const [rows] = await conn.query(sql);
+  conn.end();
+  return rows;
+}
+
+export default { login, namePersol };

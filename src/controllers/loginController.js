@@ -25,11 +25,26 @@ router.post("/", async (request, response) => {
     } else {
       const { id_user, nome } = results[0];
       const token = generateToken(id_user, nome);
-      response.status(200).json({ message: "Login efetuado com sucesso" });
+      response.status(200).json({ message: "Login efetuado com sucesso"});
     }
   } catch (err) {
     response.status(500).json({ message: `Encontramos um erro: ${err}` });
     console.log(err.stack);
+  }
+});
+
+router.get('/', async (request, response) => {
+  try {
+    const results = await db.namePersol();
+    console.log(results);
+
+    if(results.length == 0) {
+      response.status(204).end();
+    } else {
+      response.status(200).json(results)
+    }
+  } catch(err) {
+    response.status(500).json({message: `Encontramos um erro: ${err}`});
   }
 });
 
