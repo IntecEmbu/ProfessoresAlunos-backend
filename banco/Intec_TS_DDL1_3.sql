@@ -237,10 +237,10 @@ create table tbl_Feedback(
 #description "tbl_observatory": recebe dados de identificação de um Observatório. ex.:Feira das Profissões 2022 - organizador "fulano" autorizado.   
 create table tbl_observatory(
 	id_obs int	auto_increment primary key,
-	obs_cod	int unique,
-	obs_name varchar(70),
-	obs_subject	varchar(200),
-    obs_desc	varchar(200),
+	obs_cod	int unique ,
+	obs_name varchar(70) not null,
+	obs_subject	varchar(200) not null,
+    obs_desc	varchar(200) not null,
     organizing int,
     access_time int,
 	constraint fk_coord foreign key (organizing) references tbl_perm_user_link(id_pulink),
@@ -294,7 +294,8 @@ create table tbl_class_student_concept(
 	constraint fku_advisor foreign key (advisor) references tbl_perm_user_link(id_pulink),
     constraint fku_student foreign key (student) references tbl_user(id_user)
     );
-    select * from tbl_observatory;
-    
-insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
-	('teste', 'teste', 'teste');
+    #select * from tbl_observatory;
+   
+
+#insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
+	#('teste', 'teste', 'teste');

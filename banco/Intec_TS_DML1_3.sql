@@ -35,7 +35,7 @@ insert into tbl_user(user_name, registration_class, registration_number, birth, 
     ('Jose Maria dos Santos','RM',4006,'1980/11/15','jmaria@myemail.com','@jomar','(12)734568712',null,null,2),
     ('Joao Jose da Silva','RM',5018,'1988/04/01','jojo@myemail.com','@josil','(16)245638872',null,3,2),
     ('Jose João dos Santos','GT',1835,'2001/03/25','santos@myemail.com','@sesa','(31)113451010',null,1,null),
-    ('Jose Maria da Silva','RM',3650,'1997/10/12','mariasilva@myemail.com','@santo','(20)789659221',null,5,2);
+    ('antonio','RM',3650,'1997/10/12','mariasilva@myemail.com','123456789','(20)789659221',null,5,2);
     
 insert into tbl_permission(authority_code, authority_title) values
 	(1, 'Administrator'),
@@ -53,3 +53,9 @@ insert into tbl_perm_user_link(id_perm, id_user) values
 
 insert into tbl_perm_user_link(id_perm, id_user) values
 	(5,7);
+    
+select * from tbl_observatory;
+   
+insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
+	('teste', 'teste', 'teste');
+    
