@@ -54,8 +54,12 @@ insert into tbl_perm_user_link(id_perm, id_user) values
 insert into tbl_perm_user_link(id_perm, id_user) values
 	(5,7);
     
-select * from tbl_observatory;
+select * from tbl_user;
    
 insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
 	('teste', 'teste', 'teste');
+    
+insert into tbl_user(user_name, registration_class, registration_number, birth, email, sign, cell_phone, am_course, pm_course, n_course) values
+('andrei', 'RA', 12321, '2001/05/05', 'jm@myemail.com', '123456789', '(17)988989986',null,null, 2);
+
     

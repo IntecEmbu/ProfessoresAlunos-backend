@@ -1,5 +1,5 @@
 
-import database from '../connection/connection.js';
+import database from '../connection/connection.js'; 
 
 async function findAll (scheduleName){
   const conn = await database.connect(); 
@@ -15,4 +15,3 @@ async function findAll (scheduleName){
 export default {
     findAll
 };
-
