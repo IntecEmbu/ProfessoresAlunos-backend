@@ -54,7 +54,7 @@ insert into tbl_perm_user_link(id_perm, id_user) values
 insert into tbl_perm_user_link(id_perm, id_user) values
 	(5,7);
     
-select * from tbl_user;
+select * from Material;
 
 select * from tbl_perm_user_link;
 
@@ -67,3 +67,5 @@ insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
 ('Semana Técnica ADM', '20 06 2022', 'Feira de Marketing'),
 ('Semana Técnica TC', '20 07 2022', 'Palestras de ex alunos'),
 ('Visita técnica DS', '20 08 2022', 'Visita a Microsoft BR');
+
+

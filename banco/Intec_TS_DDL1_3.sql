@@ -13,6 +13,12 @@ create table Images(
    createdAt datetime,
    updatedAt datetime
 );
+create table Material(
+   id integer auto_increment primary key,
+   image varchar(60) not null,
+   createdAt datetime,
+   updatedAt datetime
+);
 
 create table tbl_course_schedule(
 	id_scd int primary key auto_increment ,		
