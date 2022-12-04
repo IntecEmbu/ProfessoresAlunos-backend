@@ -14,7 +14,7 @@ async function insertDoc(titulo, subtitulo, descricao) {
 
   async function findObser() {
     const conn = await database.connect();
-    const sql = 'SELECT obs_name, obs_subject, obs_desc FROM tbl_observatory';
+    const sql = 'SELECT obs_name, obs_subject, obs_desc FROM tbl_observatory ORDER BY id_obs DESC;';
     const [rows] = await conn.query(sql);
     conn.end();
     return rows;
