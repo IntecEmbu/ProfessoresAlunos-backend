@@ -19,6 +19,4 @@ route.use('/permUser', permUser);
 route.use('/setPermUser', setPermUser);
 route.use('/addCurso', addCurso)
 
-
-
 export default route;
