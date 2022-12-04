@@ -1,8 +1,8 @@
 import sequelize from 'sequelize';
 
 //banco usuario senha
-const dbsequelize = new sequelize('Intec_TS', 'root', '123456', {
-    host: 'localhost',
+const dbsequelize = new sequelize('bfk85ujgaxhbxyfid15z', 'ukxebu4sm1gjkkna', 'i7scNehFNVVbLuKAsUr5', {
+    host: 'bfk85ujgaxhbxyfid15z-mysql.services.clever-cloud.com',
     dialect: 'mysql'
 });
 
