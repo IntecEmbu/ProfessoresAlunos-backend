@@ -23,7 +23,7 @@ router.post('/', async (request, response) => {
 router.get('/', async (request, response) => {
 
     try {
-        const result = await db.findUser()
+        const result = await db.findAll()
         console.log(result)
 
         if (result.length == 0) {
@@ -38,6 +38,8 @@ router.get('/', async (request, response) => {
     }
 
 });
+
+
 
 
 

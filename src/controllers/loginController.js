@@ -11,11 +11,11 @@ router.post("/", async (request, response) => {
   console.log("Request >>> " + JSON.stringify(payload))
 
   //variavel que vai receber o valor do front
-  const { nome, senha } = request.body;
-  console.log("Request Body >>> " + JSON.stringify({nome, senha}));
+  const { user_name, senha, registro_classe, registro_numero } = request.body;
+  console.log("Request Body >>> " + JSON.stringify({user_name, senha, registro_classe, registro_numero }));
 
   try {
-    const results = await db.login(nome, senha);
+    const results = await db.login( user_name, senha, registro_classe, registro_numero );
 
     console.log("Results >>> " + JSON.stringify(results));
     console.log("Results Length >>> " + JSON.stringify(results).length);
@@ -23,9 +23,25 @@ router.post("/", async (request, response) => {
     if (results.length == 0) {
       response.status(401).json({ message: "login ou senha invalidos" });
     } else {
-      const { id_user, nome } = results[0];
-      const token = generateToken(id_user, nome);
-      response.status(200).json({ message: "Login efetuado com sucesso"});
+      const { id_user, user_name } = results[0];
+      const token = generateToken(id_user, user_name);
+      response.status(200).json({ message: "Login efetuado com sucesso", token });
+
+      // router.get('/', async (request, response) => {
+      //   try {
+      //     const name = results;
+      //     console.log("Results >>>" + JSON.stringify(name));
+      
+      //     if(name.length == 0) {
+      //       response.status(204).end();
+      //     } else {
+      //       response.status(200).json(name)
+      //     }
+      //   } catch(err) {
+      //     response.status(500).json({message: `Encontramos um erro: ${err}`});
+      //   }
+      // });
+
     }
   } catch (err) {
     response.status(500).json({ message: `Encontramos um erro: ${err}` });
@@ -33,19 +49,19 @@ router.post("/", async (request, response) => {
   }
 });
 
-router.get('/', async (request, response) => {
-  try {
-    const results = await db.namePersol();
-    console.log(results);
+// router.get('/', async (request, response) => {
+//   try {
+//     const results = await db.namePersol();
+//     console.log(results);
 
-    if(results.length == 0) {
-      response.status(204).end();
-    } else {
-      response.status(200).json(results)
-    }
-  } catch(err) {
-    response.status(500).json({message: `Encontramos um erro: ${err}`});
-  }
-});
+//     if(results.length == 0) {
+//       response.status(204).end();
+//     } else {
+//       response.status(200).json(results)
+//     }
+//   } catch(err) {
+//     response.status(500).json({message: `Encontramos um erro: ${err}`});
+//   }
+// });
 
 export default router;
