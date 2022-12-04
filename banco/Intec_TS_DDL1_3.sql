@@ -101,7 +101,7 @@ create table tbl_current_component(
     id_class int,
 	current_year int,
 	current_semester enum('1','2'),
-	constraint fk_ccindex foreign key(ccomp_index) references tbl_component(id_component)
+	constraint fk_ccindex foreign key(ccomp_index) references tbl_Component(id_component)
 	);
 
 #description "tbl_ccomp_class_link": ligação entre dados de um componente corrente e de uma turma. ex. PWI - turma A.  
@@ -129,7 +129,7 @@ create table tbl_cmod_ccomp_link(
     id_cmod int,
     id_ccomp int,
 	constraint fk_cmod foreign key(id_cmod) references tbl_current_module(id_cmodule),
-	constraint fk_lccomp foreign key(id_ccomp) references tbl_current_Component(id_ccomponent)
+	constraint fk_lccomp foreign key(id_ccomp) references tbl_current_component(id_ccomponent)
     );
  
 #description "tbl_Current_course": dados do curso acontecendo no presente. ex. Redes-2022.
@@ -145,8 +145,8 @@ create table tbl_ccourse_cmod_link(
 	id_cccm int auto_increment primary key,
     ccour int,
     cmod int,
-	constraint fk_ccour foreign key(ccour) references tbl_current_course(id_ccourse),
-	constraint fk_lcmod foreign key(cmod) references tbl_Current_module(id_cmodule)
+	constraint fk_ccour foreign key(ccour) references tbl_Current_course(id_ccourse),
+	constraint fk_lcmod foreign key(cmod) references tbl_current_module(id_cmodule)
     );
     
 #description "tbl_access_type":	dados do tipo de acesso ao material de aula para controle do responsável ou autor.    
@@ -275,7 +275,7 @@ create table tbl_evaluating_commitee(
     member3 int,
     member4 int,
     member5 int,
-	constraint fke_ccourse foreign key (ccourse) references tbl_current_course(id_ccourse),
+	constraint fke_ccourse foreign key (ccourse) references tbl_Current_course(id_ccourse),
 	constraint fke_member foreign key (member1) references tbl_perm_user_link(id_pulink));
     
 #description "tbl_class_concept": recebe o conceito de avaliação do TCC emitido pela banca avaliadora. 

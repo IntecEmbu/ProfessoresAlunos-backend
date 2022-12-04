@@ -1,5 +1,5 @@
 use Intec_TS;
-
+select * from tbl_course;
 insert into tbl_course_schedule(scd_name, scd_acronym) values
 	('Manhã','M'),
     ('Tarde','T'),
