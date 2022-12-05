@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('./db');
 
-const Image = db.define('images', {
+const Image = db.define('Images', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -9,7 +9,7 @@ const Image = db.define('images', {
         primaryKey: true
     },
     image: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(60)
     }
 });
 
