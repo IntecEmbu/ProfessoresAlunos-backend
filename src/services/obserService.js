@@ -12,12 +12,25 @@ async function insertDoc(titulo, subtitulo, descricao) {
     conn.end();
   }
 
-  async function findObser() {
-    const conn = await database.connect();
-    const sql = 'SELECT obs_name, obs_subject, obs_desc FROM tbl_observatory';
-    const [rows] = await conn.query(sql);
-    conn.end();
-    return rows;
-  }
+async function findObser() {
+  const conn = await database.connect();
+  const sql = 'SELECT obs_name, obs_subject, obs_desc FROM tbl_observatory ORDER BY id_obs DESC;';
+  const [rows] = await conn.query(sql);
+  conn.end();
+  return rows;
+}
 
-export default {insertDoc, findObser};
+async function insertImage(base64) {
+  const conn = await database.connect();
+  const sql = 'INSERT INTO tbl_material (image) VALUES (?)';
+  const data = [base64];
+  const [rows] = await conn.query(sql, data);
+  conn.end();
+  return rows;
+}
+
+export default {
+  insertDoc,
+  findObser,
+  insertImage
+};

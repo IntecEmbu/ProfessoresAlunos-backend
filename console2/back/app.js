@@ -22,12 +22,14 @@ app.use((req, res, next) => {
 app.get("/ListObs", async (req, res) => {
     await Image.findAll()
     .then((images) => {
+        console.log
         return res.json({
             erro: false,
             images,
             url: "http://localhost:3333/files/users/"
         });
-    }).catch(() => {
+    }).catch((err) => {
+        console.log(err)
         return res.status(400).json({
             erro: true,
             mensagem: "Erro: Nenhuma imagem encontrada!"
