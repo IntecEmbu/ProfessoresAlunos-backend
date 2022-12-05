@@ -54,7 +54,7 @@ insert into tbl_perm_user_link(id_perm, id_user) values
 insert into tbl_perm_user_link(id_perm, id_user) values
 	(5,7);
     
-select * from Material;
+select * from tbl_user;
 
 select * from tbl_perm_user_link;
 
