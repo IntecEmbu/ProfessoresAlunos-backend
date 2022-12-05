@@ -13,7 +13,7 @@ router.post(
   //    .withMessage("A senha deve conter entre 7 e 12 caracteres"),
   //],
   async (request, response) => {
-    const { titulo, subtitulo, descricao } = request.body;
+    const { titulo, subtitulo, descricao, criador } = request.body;
 
     const errors = validationResult(request);
 
@@ -24,10 +24,10 @@ router.post(
     }
 
     try {
-      await db.insertDoc(titulo, subtitulo, descricao);
+      await db.insertDoc(titulo, subtitulo, descricao, criador);
       response.status(201).json({ message: "Documento cadastrado com sucesso!" });
 
-      console.log(titulo, subtitulo, descricao);
+      console.log(titulo, subtitulo, descricao, criador);
     } catch (err) {
       response.status(500).json({ message: `Encontramos um erro: ${err}` });
     }

@@ -163,7 +163,19 @@ create table tbl_lesson_access_period(
 	constraint fk_account foreign key(id_accountable) references tbl_perm_user_link(id_pulink)
 	);
 
-#description "tbl_material":dados de registro de um material digital de aula, responsável, tipo de acesso, formato do material e endereço digital.   
+#description "tbl_material":dados de registro de um material digital de aula, responsável, tipo de acesso, formato do material e endereço digital. 
+#description "tbl_observatory": recebe dados de identificação de um Observatório. ex.:Feira das Profissões 2022 - organizador "fulano" autorizado.   
+create table tbl_observatory(
+	id_obs int auto_increment primary key,
+	obs_cod	int unique ,
+	obs_name varchar(70) not null,
+	obs_subject	varchar(200) not null,
+    obs_desc	varchar(200) not null,
+    criador varchar(70) not null,
+    organizing int,
+	constraint fk_coord foreign key (organizing) references tbl_perm_user_link(id_pulink)
+    #constraint material foreign key (id_material) references tbl_material(id_material)
+    );  
 create table tbl_material(
 	id_material int	auto_increment primary key,
 	material_name varchar(80),
@@ -173,6 +185,8 @@ create table tbl_material(
 	description varchar(300),
 	digital_format	varchar(20),
     digital_repository	varchar(300),
+	local_observatory int,
+    constraint fk_observatory foreign key (local_observatory) references tbl_observatory(id_obs),
 	constraint fk_masteracc foreign key (id_accountable) references tbl_perm_user_link(id_pulink),
 	constraint fk_access foreign key(access_type) references tbl_access_type(id_atype)   
     );
@@ -240,19 +254,6 @@ create table tbl_Feedback(
 	constraint fkf_stud foreign key (student) references tbl_user(id_user)
 );
 
-#description "tbl_observatory": recebe dados de identificação de um Observatório. ex.:Feira das Profissões 2022 - organizador "fulano" autorizado.   
-create table tbl_observatory(
-	id_obs int	auto_increment primary key,
-	obs_cod	int unique ,
-	obs_name varchar(70) not null,
-	obs_subject	varchar(200) not null,
-    obs_desc	varchar(200) not null,
-    organizing int,
-    access_time int,
-	constraint fk_coord foreign key (organizing) references tbl_perm_user_link(id_pulink),
-    constraint fk_accesstime foreign key id_access (access_time)	references tbl_lesson_access_period(id_accessp)
-    #constraint material foreign key (id_material) references tbl_material(id_material)
-    );
     
 #description "tbl_obs_mat_link": faz ligação entre um Observatório e os materiais associados a ele. ex.: Feira de Profissões 2022 - fotografias.  
 create table tbl_obs_mat_link(
