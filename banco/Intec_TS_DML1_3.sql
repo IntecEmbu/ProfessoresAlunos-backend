@@ -69,3 +69,4 @@ insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
 ('Visita técnica DS', '20 08 2022', 'Visita a Microsoft BR');
 
 select * from tbl_observatory;
+select * from tbl_material;

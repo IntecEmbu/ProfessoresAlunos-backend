@@ -1,7 +1,8 @@
 import express, { response } from "express";
 import db from "../services/obserService.js";
 import { body, validationResult } from "express-validator";
-import multer from 'multer'
+import multer from 'multer';
+
 
 const upload = multer({
   dest: 'public/upload'
@@ -53,7 +54,7 @@ router.get('/', async (request, response) => {
   }
 });
 
-router.post('/image', upload.single('image'), async (request, response) => {
+router.post('/image', upload.single('image'), async (req, response) => {
   const encoded = req.file.buffer.toString('base64');
   console.log(encoded)
   console.log('🚀 - file: obserController.js:58 - router.post - encoded', encoded)
@@ -64,4 +65,5 @@ router.post('/image', upload.single('image'), async (request, response) => {
     response.status(500).json({ message: `Encontramos um erro: ${err}` });
   }
 })
+
 export default router;

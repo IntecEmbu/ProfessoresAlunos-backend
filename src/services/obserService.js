@@ -19,5 +19,14 @@ async function insertDoc(titulo, subtitulo, descricao, criador) {
     conn.end();
     return rows;
   }
+  async function insertImage(encoded) {
+    const conn = await database.connect(); 
+  
+    const sql =
+      "INSERT INTO tbl_material(digital_repository) VALUES(?);";
+    const image = encoded
+    await conn.query(sql, image); 
+    conn.end();
+  }
 
-export default {insertDoc, findObser};
+export default {insertDoc, findObser, insertImage};
