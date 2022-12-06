@@ -8,6 +8,7 @@ const uploadMaterial = require('./middlewares/uploadMaterial');
 
 const Image = require('./models/Images');
 const Material = require('./models/material');
+const fs = require("fs");
 
 app.use('/files', express.static(path.resolve(__dirname,"public", "upload")));
 
@@ -26,7 +27,8 @@ app.get("/ListObs", async (req, res) => {
         return res.json({
             erro: false,
             images,
-            url: "http://localhost:3333/files/users/"
+            // url: "http://localhost:3333/files/users/"
+            url: "http://localhost:3333/:id/"
         });
     }).catch((err) => {
         console.log(err)
@@ -37,11 +39,15 @@ app.get("/ListObs", async (req, res) => {
     });
 });
 
-app.post("/PostObs", uploadUser.single('image'), async (req, res) => {
+app.post("/PostObs/:id", uploadUser.single('image'), async (req, res) => {
+
+    // if (!fs.existsSync("/:id")) {
+    //     fs.mkdirSync("/:id")
+    //   }
 
     if (req.file) {
         //console.log(req.file);
-
+        
         await Image.create({image: req.file.filename})
         .then(() => {
             return res.json({

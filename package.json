@@ -26,6 +26,7 @@
     "express-fileupload": "^1.4.0",
     "express-validation": "^4.1.0",
     "express-validator": "^6.14.2",
+    "fs-extra": "^11.1.0",
     "html-pdf-node": "^1.0.8",
     "jsonwebtoken": "^8.5.1",
     "jwt": "^0.2.0",
