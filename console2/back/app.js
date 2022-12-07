@@ -9,6 +9,7 @@ const uploadMaterial = require('./middlewares/uploadMaterial');
 const Image = require('./models/Images');
 const Material = require('./models/material');
 const fs = require("fs");
+const {createFolder} = require ('./middlewares/createFolder')
 
 app.use('/files', express.static(path.resolve(__dirname,"public", "upload")));
 
@@ -39,11 +40,7 @@ app.get("/ListObs", async (req, res) => {
     });
 });
 
-app.post("/PostObs/:id", uploadUser.single('image'), async (req, res) => {
-
-    // if (!fs.existsSync("/:id")) {
-    //     fs.mkdirSync("/:id")
-    //   }
+app.post("/PostObs/:nome", createFolder,uploadUser.single('image'), async (req, res) => {
 
     if (req.file) {
         //console.log(req.file);
