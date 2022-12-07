@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('bfk85ujgaxhbxyfid15z', 'ukxebu4sm1gjkkna', 'i7scNehFNVVbLuKAsUr5', {
-    host: 'bfk85ujgaxhbxyfid15z-mysql.services.clever-cloud.com',
+const sequelize = new Sequelize('Intec_TS', 'root', '123456', {
+    host: 'localhost',
     dialect: 'mysql'
 });
 

@@ -62,11 +62,9 @@ insert into tbl_user(user_name, registration_class, registration_number, birth, 
 ('andrei', 'RA', 12321, '2001/05/05', 'jm@myemail.com', '123456789', '(17)988989986',null,null, 2);
 
 
-insert into tbl_observatory(obs_name, obs_subject, obs_desc) values
-('Semana Técnica DS', '20 05 2022', 'Palestras de ex alunos'),
-('Semana Técnica ADM', '20 06 2022', 'Feira de Marketing'),
-('Semana Técnica TC', '20 07 2022', 'Palestras de ex alunos'),
-('Visita técnica DS', '20 08 2022', 'Visita a Microsoft BR');
+insert into tbl_observatory(obs_name, obs_subject, obs_desc, criador) values
+('Semana Técnica DS', '20 05 2022', 'Palestras de ex alunos', 'antonio');
+
 
 select * from tbl_observatory;
 select * from tbl_material;
