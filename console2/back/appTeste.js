@@ -1,13 +1,10 @@
 const express = require('express');
 var cors = require('cors');
 const path = require('path');
-
 const app = express();
 const uploadUser = require('./middlewares/uploadImage');
-const uploadMaterial = require('./middlewares/uploadMaterial');
+const tbl_material = require('./models/imageTeste');
 
-const Image = require('./models/Images');
-const Material = require('./models/material');
 const fs = require("fs");
 const {createFolder} = require ('./middlewares/createFolder')
 
@@ -21,13 +18,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/ListObs/:nome", async (req, res) => {
-    await Image.findAll()
-    .then((images) => {
+app.get("/ListObs", async (req, res) => {
+    await tbl_material.findAll()
+    .then((tbl_material) => {
         console.log
         return res.json({
             erro: false,
-            images,
+            tbl_material,
             // url: "http://localhost:3333/files/users/"
             url: "http://localhost:3333/files/:nome/"
         });
@@ -40,12 +37,12 @@ app.get("/ListObs/:nome", async (req, res) => {
     });
 });
 
-app.post("/PostObs/:nome", createFolder,uploadUser.single('image'), async (req, res) => {
+app.post("/PostObs/:nome", createFolder,uploadUser.single('digital_repository'), async (req, res) => {
 
     if (req.file) {
         //console.log(req.file);
         
-        await Image.create({image: req.file.filename})
+        await tbl_material.create({digital_repository: req.file.filename})
         .then(() => {
             return res.json({
                 erro: false,
@@ -66,48 +63,7 @@ app.post("/PostObs/:nome", createFolder,uploadUser.single('image'), async (req, 
     }
 
 });
-app.get("/ListMat", async (req, res) => {
-    await Material.findAll()
-    .then((images) => {
-        return res.json({
-            erro: false,
-            images,
-            url: "http://localhost:3333/files/:nome/"
-        });
-    }).catch(() => {
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: Nenhuma imagem encontrada!"
-        });
-    });
-});
 
-app.post("/PostMat/:nome", uploadMaterial.single('image'), async (req, res) => {
-
-    if (req.file) {
-        //console.log(req.file);
-
-        await Material.create({image: req.file.filename})
-        .then(() => {
-            return res.json({
-                erro: false,
-                mensagem: "Upload realizado com sucesso!"
-            });
-        }).catch(() => {
-            return res.status(400).json({
-                erro: true,
-                mensagem: "Erro: Upload não realizado com sucesso!"
-            });
-        });
-        
-    }else{
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: Upload não realizado com sucesso, necessário enviar uma imagem PNG ou JPG!"
-        });
-    }
-
-});
 app.get("/dowload", (req, res) => {
     res.download(__dirname + `/public/upload/material/1669773205718_download.png`)
 

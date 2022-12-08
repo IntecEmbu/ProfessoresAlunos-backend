@@ -65,6 +65,10 @@ insert into tbl_user(user_name, registration_class, registration_number, birth, 
 insert into tbl_observatory(obs_name, obs_subject, obs_desc, criador) values
 ('Semana Técnica DS', '20 05 2022', 'Palestras de ex alunos', 'antonio');
 
+insert into Material(genero) values
+('pw2');
+
 
 select * from tbl_observatory;
 select * from tbl_material;
+select * from Images;

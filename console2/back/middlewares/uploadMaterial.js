@@ -3,14 +3,15 @@ const multer = require('multer');
 module.exports = (multer({
     storage: multer.diskStorage({
         destination: (req, file, cb) => {
-            cb(null, './public/upload/material')
+            // cb(null, './public/upload/users')
+            cb(null, `./files/${req.params.nome}`)
         },
         filename: (req, file, cb) => {
             cb(null, Date.now().toString() + "_" + file.originalname)  
         }
     }),
     fileFilter: (req, file, cb) => {
-        const extensaoImg = ['image/png', 'image/jpg', 'image/jpeg', 'pdf/application'].find(formatoAceito => formatoAceito == file.mimetype);
+        const extensaoImg = ['image/png', 'image/jpg', 'image/jpeg'].find(formatoAceito => formatoAceito == file.mimetype);
 
         if(extensaoImg){
             return cb(null, true);

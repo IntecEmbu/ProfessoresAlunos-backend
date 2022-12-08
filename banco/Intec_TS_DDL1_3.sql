@@ -13,11 +13,9 @@ create table Images(
    createdAt datetime,
    updatedAt datetime
 );
-create table Material(
-   id integer auto_increment primary key,
-   image varchar(60) not null,
-   createdAt datetime,
-   updatedAt datetime
+create table tbl_genero(
+   id_genero integer auto_increment primary key,
+   genero varchar(60) 
 );
 
 create table tbl_course_schedule(
@@ -186,6 +184,8 @@ create table tbl_material(
 	digital_format	varchar(20),
     digital_repository	varchar(300),
 	local_observatory int,
+    createdAt datetime,
+	updatedAt datetime,
     constraint fk_observatory foreign key (local_observatory) references tbl_observatory(id_obs),
 	constraint fk_masteracc foreign key (id_accountable) references tbl_perm_user_link(id_pulink),
 	constraint fk_access foreign key(access_type) references tbl_access_type(id_atype)   
