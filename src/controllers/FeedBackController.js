@@ -10,16 +10,16 @@ const router = express.Router();
 //request é oq o front envia para o back 
 //response oq o back envia para o front
 router.post('/',async (request, response) => {
-    const {  genero } = request.body;
+    const {  material, assunto } = request.body;
     const errors = validationResult(request);
     if (!errors.isEmpty()) {
         return response.status(400).json({ message: errors.array() });
     }
     //debug
-    console.log("genero:", genero);
+    console.log("material, assunto:", material, assunto);
     //inseri os dados
     try {
-        await db.insertGenero(genero);
+        await db.insertAula(material, assunto);
         response.status(201).json({ message: 'Genero cadastrado com sucesso' });
     } catch (err) {
         response.status(500).json({
@@ -33,7 +33,7 @@ router.post('/',async (request, response) => {
 router.get('/', async (request, response) => {
 
     try {
-        const result = await db.findgenero()
+        const result = await db.findAula()
         // console.log(result)
 
         if (Array.isArray(result) && result.length == 0) {
@@ -52,22 +52,22 @@ router.get('/', async (request, response) => {
 
 router.put('/', async (request, response) => {
 
-    const { id_genero, genero } = request.body;
+    const { id, material, assunto } = request.body;
 
-    console.log('teste', id_genero, genero)
+    console.log('teste', id, material, assunto)
 
     try {
-        await db.updateGender(id_genero, genero);
+        await db.updateAula(id, material, assunto);
         response.status(200).json({ message: 'Genero atulizado com sucesso' })
     } catch (err) {
         response.status(500).json({ message: `Houve um erro ao atualizar Erro: ${err}` })
     }
 })
 
-router.delete('/:id_genero', async (request, response) => {
-    const { id_genero } = request.params
+router.delete('/:id', async (request, response) => {
+    const { id } = request.params
     try {
-        await db.deleteGender(id_genero);
+        await db.deleteGender(id);
         response.status(200).json({ message: 'Item excluido com sucesso' })
     } catch (err) {
         response.status(500).json({ message: `Houve um erro ao excluir Erro: ${err}` })

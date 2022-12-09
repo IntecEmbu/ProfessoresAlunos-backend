@@ -1,37 +1,37 @@
 import database from '../connection/connection.js';
 
-async function insertGenero(genero){
+async function insertAula(material, assunto){
   const conn = await database.connect(); 
-  const sql = 'insert into tbl_genero(genero) values(?);';
-  const dataGender = [genero];
+  const sql = 'insert into tbl_matAula(material, assunto) values(?,?);';
+  const dataAula = [material,assunto];
 
-  await conn.query(sql, dataGender); 
+  await conn.query(sql, dataAula); 
   conn.end();
 }
 
-async function findgenero(){
+async function findAula(){
   const conn = await database.connect();
-  const sql = 'SELECT * FROM tbl_genero';
+  const sql = 'SELECT * FROM tbl_matAula';
   const [rows] = await conn.query(sql)
   conn.end();
   return rows;
 }
 
-async function updateGender(id_genero, genero){
+async function updateAula(id, material, assunto){
   const conn = await database.connect()
-  const sql = 'UPDATE tbl_genero SET  genero =?  WHERE id_genero =?';
-  const dataGenero = [genero, id_genero ];
-  await conn.query(sql, dataGenero);
+  const sql = 'UPDATE tbl_matAula SET  material =? and assunto = ? WHERE id =?';
+  const dataAula = [material, assunto, id ];
+  await conn.query(sql, dataAula);
   conn.end()
   return;
 }
 
-async function deleteGender(id_genero){
+async function deleteAula(id){
     const conn = await database.connect()
-    const sql = 'DELETE FROM tbl_genero WHERE id_genero =?';
-    await conn.query(sql, id_genero);
+    const sql = 'DELETE FROM tbl_matAula WHERE id =?';
+    await conn.query(sql, id);
     conn.end()
     return; 
     
 }
-export default {insertGenero, findgenero, updateGender, deleteGender};
+export default {insertAula, findAula, updateAula, deleteAula};

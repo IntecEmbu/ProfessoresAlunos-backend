@@ -69,6 +69,6 @@ insert into Material(genero) values
 ('pw2');
 
 
-select * from tbl_observatory;
+select * from tbl_user;
 select * from tbl_material;
 select * from Images;

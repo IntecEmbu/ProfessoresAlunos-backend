@@ -13,9 +13,10 @@ create table Images(
    createdAt datetime,
    updatedAt datetime
 );
-create table tbl_genero(
-   id_genero integer auto_increment primary key,
-   genero varchar(60) 
+create table tbl_matAula(
+   id integer auto_increment primary key,
+   material varchar(60),
+   assunto varchar(60)
 );
 
 create table tbl_course_schedule(
