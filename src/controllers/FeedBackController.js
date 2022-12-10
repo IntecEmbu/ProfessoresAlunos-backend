@@ -20,7 +20,7 @@ router.post('/',async (request, response) => {
     //inseri os dados
     try {
         await db.insertAula(material, assunto);
-        response.status(201).json({ message: 'Genero cadastrado com sucesso' });
+        response.status(201).json({ message: 'Material cadastrado com sucesso' });
     } catch (err) {
         response.status(500).json({
             message:
@@ -58,7 +58,7 @@ router.put('/', async (request, response) => {
 
     try {
         await db.updateAula(id, material, assunto);
-        response.status(200).json({ message: 'Genero atulizado com sucesso' })
+        response.status(200).json({ message: 'Material atulizado com sucesso' })
     } catch (err) {
         response.status(500).json({ message: `Houve um erro ao atualizar Erro: ${err}` })
     }

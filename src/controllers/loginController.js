@@ -23,8 +23,9 @@ router.post("/", async (request, response) => {
     if (results.length == 0) {
       response.status(401).json({ message: "login ou senha invalidos" });
     } else {
-      const { id_user, user_name } = results[0];
-      const token = generateToken(id_user, user_name);
+      const user = results[0]
+      delete user.sign
+      const token = generateToken(results[0]);
       response.status(200).json({ message: "Login efetuado com sucesso", token });
 
       // router.get('/', async (request, response) => {
