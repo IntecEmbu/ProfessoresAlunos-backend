@@ -18,6 +18,9 @@ create table tbl_matAula(
    material varchar(60),
    assunto varchar(60)
 );
+insert into  tbl_matAula (material, assunto)values 
+	('pw','hook');
+
 
 create table tbl_course_schedule(
 	id_scd int primary key auto_increment ,		

@@ -11,7 +11,7 @@ const Material = require('./models/material');
 const fs = require("fs");
 const {createFolder} = require ('./middlewares/createFolder')
 
-app.use('/files', express.static(path.resolve(__dirname,"public", "upload")));
+app.use('/files', express.static(path.resolve(__dirname,"files")));
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,8 +20,8 @@ app.use((req, res, next) => {
     app.use(cors());
     next();
 });
-
-app.get("/ListObs/:nome", async (req, res) => {
+//app.get("/ListObs/:nome", async (req, res) => {
+app.get("/ListObs/ADMFeira", async (req, res) => {
     await Image.findAll()
     .then((images) => {
         console.log
@@ -29,7 +29,7 @@ app.get("/ListObs/:nome", async (req, res) => {
             erro: false,
             images,
             // url: "http://localhost:3333/files/users/"
-            url: "http://localhost:3333/files/:nome/"
+            url: "http://localhost:3333/files/ADMFeira/"
         });
     }).catch((err) => {
         console.log(err)
@@ -82,7 +82,7 @@ app.get("/ListMat", async (req, res) => {
     });
 });
 
-app.post("/PostMat/:nome", uploadMaterial.single('image'), async (req, res) => {
+app.post("/PostMat/public/upload/material", uploadMaterial.single('image'), async (req, res) => {
 
     if (req.file) {
         //console.log(req.file);
