@@ -50,7 +50,7 @@ router.get('/', async (request, response) => {
 })
 
 
-router.put('/', async (request, response) => {
+router.put('/txtMaterial', async (request, response) => {
 
     const { id_material, material, assunto } = request.body;
 
@@ -64,7 +64,7 @@ router.put('/', async (request, response) => {
     }
 })
 
-router.delete('/', async (request, response) => {
+router.delete('/:id_material', async (request, response) => {
     const { id_material } = request.params
     try {
         await db.deleteAula(id_material);
