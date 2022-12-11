@@ -52,22 +52,22 @@ router.get('/', async (request, response) => {
 
 router.put('/', async (request, response) => {
 
-    const { id, material, assunto } = request.body;
+    const { id_material, material, assunto } = request.body;
 
-    console.log('teste', id, material, assunto)
+    console.log('teste', id_material, material, assunto)
 
     try {
-        await db.updateAula(id, material, assunto);
+        await db.updateAula(id_material, material, assunto);
         response.status(200).json({ message: 'Material atulizado com sucesso' })
     } catch (err) {
         response.status(500).json({ message: `Houve um erro ao atualizar Erro: ${err}` })
     }
 })
 
-router.delete('/:id', async (request, response) => {
-    const { id } = request.params
+router.delete('/', async (request, response) => {
+    const { id_material } = request.params
     try {
-        await db.deleteGender(id);
+        await db.deleteAula(id_material);
         response.status(200).json({ message: 'Item excluido com sucesso' })
     } catch (err) {
         response.status(500).json({ message: `Houve um erro ao excluir Erro: ${err}` })

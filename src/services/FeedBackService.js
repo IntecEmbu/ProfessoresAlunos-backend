@@ -17,19 +17,19 @@ async function findAula(){
   return rows;
 }
 
-async function updateAula(id, material, assunto){
+async function updateAula(id_material, material, assunto){
   const conn = await database.connect()
-  const sql = 'UPDATE tbl_matAula SET  material =? and assunto = ? WHERE id =?';
-  const dataAula = [material, assunto, id ];
+  const sql = 'UPDATE tbl_matAula SET  material =? and assunto = ? WHERE id_material =?';
+  const dataAula = [material, assunto, id_material ];
   await conn.query(sql, dataAula);
   conn.end()
   return;
 }
 
-async function deleteAula(id){
+async function deleteAula(id_material){
     const conn = await database.connect()
-    const sql = 'DELETE FROM tbl_matAula WHERE id =?';
-    await conn.query(sql, id);
+    const sql = 'DELETE FROM tbl_matAula WHERE id_material =?';
+    await conn.query(sql, id_material);
     conn.end()
     return; 
     

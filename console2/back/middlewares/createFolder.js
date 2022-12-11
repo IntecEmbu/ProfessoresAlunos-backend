@@ -9,7 +9,6 @@ function createFolder(req, res, next) {
   catch{
     next();
   }
-
 }
 
 module.exports = {createFolder};

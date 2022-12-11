@@ -14,7 +14,7 @@ create table Images(
    updatedAt datetime
 );
 create table tbl_matAula(
-   id integer auto_increment primary key,
+   id_material integer auto_increment primary key,
    material varchar(60),
    assunto varchar(60)
 );
