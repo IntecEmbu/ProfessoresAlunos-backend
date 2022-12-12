@@ -1,0 +1,7 @@
+
+GT = 3652 antonio S
+RM = 3650 antonio
+RA = 3651 antonio H
+
+
+observatório = DSVisita
