@@ -20,6 +20,15 @@ create table Images(
 #   assunto varchar(60)
 #);
 
+create table tbl_darfeedback(
+	id_feedback int auto_increment primary key,
+	nome varchar(60),
+    email varchar(60),
+    material varchar(60),
+    feedback varchar(20),
+    descricao varchar(600)
+);
+
 create table tbl_genero(
    id_genero int auto_increment primary key,
    genero varchar(60),

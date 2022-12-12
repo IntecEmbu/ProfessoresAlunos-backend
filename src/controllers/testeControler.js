@@ -79,6 +79,21 @@ router.put('/assunto', async (request, response) => {
     }
 })
 
+
+router.put('/feed', async (request, response) => {
+    
+    const { id_feedback, descricao } = request.body;
+
+    console.log('teste', id_feedback, descricao)
+
+    try {
+        await db.updateGende(id_feedback, descricao);
+        response.status(200).json({ message: 'Assunto atulizado com sucesso' })
+    } catch (err) {
+        response.status(500).json({ message: `Houve um erro ao atualizar Erro: ${err}` })
+    }
+})
+
 router.delete('/:id_genero', async (request, response) => {
     const { id_genero } = request.params
     try {
