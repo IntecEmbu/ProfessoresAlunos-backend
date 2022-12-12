@@ -17,10 +17,10 @@ async function findAula(){
   return rows;
 }
 
-async function updateAula(id_material, material, assunto){
+async function updateAula( material, assunto){
   const conn = await database.connect()
   const sql = 'UPDATE tbl_matAula SET  material =? and assunto = ? WHERE id_material =?';
-  const dataAula = [material, assunto, id_material ];
+  const dataAula = [material, assunto];
   await conn.query(sql, dataAula);
   conn.end()
   return;

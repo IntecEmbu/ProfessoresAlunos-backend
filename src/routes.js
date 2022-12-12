@@ -9,6 +9,7 @@ import permUser from './controllers/permUserController.js';
 import setPermUser from './controllers/setPermUserController.js';
 import addCurso from './controllers/addcourseController.js';
 import material from './controllers/FeedBackController.js';
+import gender from './controllers/testeControler.js';
 const route = express.Router();
 
 //redireciona as requisições para a controller correspondente
@@ -20,5 +21,6 @@ route.use('/permUser', permUser);
 route.use('/setPermUser', setPermUser);
 route.use('/addCurso', addCurso)
 route.use('/material', material);
+route.use('/gender', gender)
 
 export default route;

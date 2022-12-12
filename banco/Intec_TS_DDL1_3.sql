@@ -13,14 +13,21 @@ create table Images(
    createdAt datetime,
    updatedAt datetime
 );
-create table tbl_matAula(
-   id_material integer auto_increment primary key,
-   material varchar(60),
+
+#create table tbl_matAula(
+#   id_material integer auto_increment primary key,
+#   material varchar(60),
+#   assunto varchar(60)
+#);
+
+create table tbl_genero(
+   id_genero int auto_increment primary key,
+   genero varchar(60),
    assunto varchar(60)
 );
-insert into  tbl_matAula (material, assunto)values 
-	('pw','hook');
 
+insert into tbl_genero(genero,assunto) 
+values('PWIII','NODE.JS'),('BDIII','PROCEDURES'),('PWIII','REACT.JS'),('GIT','COMMIT');
 
 create table tbl_course_schedule(
 	id_scd int primary key auto_increment ,		
