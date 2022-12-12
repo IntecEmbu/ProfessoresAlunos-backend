@@ -10,6 +10,7 @@ import setPermUser from './controllers/setPermUserController.js';
 import addCurso from './controllers/addcourseController.js';
 import material from './controllers/FeedBackController.js';
 import gender from './controllers/testeControler.js';
+import darfeed from "./controllers/DarFeedbackController.js";
 const route = express.Router();
 
 //redireciona as requisições para a controller correspondente
@@ -21,6 +22,8 @@ route.use('/permUser', permUser);
 route.use('/setPermUser', setPermUser);
 route.use('/addCurso', addCurso)
 route.use('/material', material);
-route.use('/gender', gender)
+route.use('/gender', gender);
+route.use('/darfeed', darfeed);
+
 
 export default route;
