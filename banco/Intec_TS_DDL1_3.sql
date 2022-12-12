@@ -35,6 +35,9 @@ create table avaliacao(
     validacao varchar(60)
 );
 
+INSERT INTO avaliacao(Ano,aluno,modulo,turma,nivel_tecnico,orientador,tema,analise,rm,dia,validacao ) 
+values('1','2','3','4','5','6','7','8','9','10','11');
+
 create table tbl_darfeedback(
 	id_feedback int auto_increment primary key,
 	nome varchar(60),
