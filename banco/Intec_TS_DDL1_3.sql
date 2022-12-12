@@ -20,6 +20,21 @@ create table Images(
 #   assunto varchar(60)
 #);
 
+create table avaliacao(
+	id_avaliacao int auto_increment primary key,
+    Ano  varchar(60),
+    aluno varchar(60),
+    modulo varchar(60),
+    turma varchar(60),
+    nivel_tecnico varchar(60),
+    orientador varchar(60),
+    tema varchar(60),
+    analise varchar(600),
+    rm varchar(60),
+    dia varchar(60),
+    validacao varchar(60)
+);
+
 create table tbl_darfeedback(
 	id_feedback int auto_increment primary key,
 	nome varchar(60),
