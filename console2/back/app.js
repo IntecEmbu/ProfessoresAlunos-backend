@@ -21,7 +21,7 @@ app.use((req, res, next) => {
     next();
 });
 //app.get("/ListObs/:nome", async (req, res) => {
-app.get("/ListObs/ADMFeira", async (req, res) => {
+app.get("/ListObs/DSVisita", async (req, res) => {
     await Image.findAll()
     .then((images) => {
         console.log
@@ -29,7 +29,7 @@ app.get("/ListObs/ADMFeira", async (req, res) => {
             erro: false,
             images,
             // url: "http://localhost:3333/files/users/"
-            url: "http://localhost:3333/files/ADMFeira/"
+            url: "http://localhost:3333/files/DSVisita/"
         });
     }).catch((err) => {
         console.log(err)
